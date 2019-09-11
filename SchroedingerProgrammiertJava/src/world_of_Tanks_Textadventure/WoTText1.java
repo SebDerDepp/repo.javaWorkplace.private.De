@@ -1,0 +1,51 @@
+package world_of_Tanks_Textadventure;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class WoTText1 {
+	public static void main(String[] args) throws IOException{
+		System.out.println("Hallo "+ args[0] +", willkommen in World of Tanks Text. Du Befindest dich in Berlin.");
+		System.out.println("Verwende die Tasten N für Norden, O für Osten, S für Sueden und W für Westen um dich zu bewegen, und I öffnet dein Inventar.");
+		System.out.println("Mit Q verlässt du das Spiel");
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String befehl;
+		
+		while((befehl = br.readLine()) != null) {
+			switch (befehl.toLowerCase()) {
+			case "n":
+				System.err.println("Du fährst nach Norden!");
+				break;
+			case "o":
+				System.err.println("Du fährst nach Osten!");
+				break;
+			case "s":
+				System.err.println("Du färhst nach Süden!");
+				break;
+			case "w":
+				System.err.println("Du färhst nach Westen!");
+				break;
+			case "q":
+				System.out.println("Wilslt du Wirklich deinen Panzer aufgeben? Y/N");
+				String antwort = br.readLine();
+				switch(antwort.toLowerCase()) {
+				case "y":
+					System.out.println("Fahrzeug Aufgegeben!");
+					System.exit(0);
+					break;
+				case "n":
+					System.out.println("Fahrzeug wieder in Bewegung!");
+					break;
+				}
+				break;
+			case "i":
+				System.out.println("Da sie die Array-Technologie noch nicht Erforsch haben befindet sich in ihrem Inventar: Ein Foto der Geliebten von daheim.");
+				break;
+			default:
+				System.err.println("Sie müssen schon klare Anweisungen geben Soldat!");
+			}	
+		}		
+	}
+}
